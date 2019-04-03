@@ -1,7 +1,9 @@
 # Navigation
 
-- Simplifies UIViewController instantiation using only the controller's StoryboardID. 
-- Check the existence of a UIViewController in the project thanks to its StoryboardID
+- Simplifies UIViewController instantiation using only the controller StoryboardID. 
+- Check the existence of a UIViewController in the project with the controller StoryboardID
+- Return list name (file name) of Storyboard in project
+- Return list name (StoryboardID) of UIViewController in project
 
 ## Installation
 
@@ -25,17 +27,17 @@ if Navigation.controllerExist("MyController") {
 }
 ```
 
-Return all storyboard name 
+Return all storyboard name (file name)
 
 ```Swift
 Navigation.getAllStoryboardName()
 ```
-Return all UIViewController name 
+Return all UIViewController name (StoryboardID) 
 
 ```Swift
 Navigation.getAllViewControllerName()
 ```
-Return all UIViewController name for specific Storyboard
+Return all UIViewController name (StoryboardID) for specific Storyboard
 
 ```Swift
 Navigation.getAllViewController(inStoryboard: "Main")
