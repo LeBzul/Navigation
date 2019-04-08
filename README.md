@@ -23,7 +23,7 @@ Verify if controller exist in project
 
 ```Swift
 if Navigation.controllerExist("MyController") {
-    print("MyController exist")
+print("MyController exist")
 }
 ```
 

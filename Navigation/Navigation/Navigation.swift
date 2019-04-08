@@ -34,6 +34,7 @@ public class NavigationSingleton {
                 dictionnary.updateValue(getAllController(namesStoryBoard: "\(directory)/\(name)"), forKey: String(shortName))
             }
             
+            
             arrayName = [String]()
             let lprojs = allResources.filter({ $0.hasSuffix(".lproj" )})
             for lproj in lprojs {
@@ -93,5 +94,34 @@ public class NavigationSingleton {
             }
         }
         return nil
+    }
+    
+    func getAllStoryboardName() -> [String] {
+        var arrayNames = [String]()
+        for dic in dictionnary {
+            arrayNames.append(dic.key)
+        }
+        return arrayNames
+    }
+    
+    
+    func getAllViewControllerName() -> [String] {
+        var arrayNames = [String]()
+        for dic in dictionnary {
+            for controllerName in dic.value {
+                arrayNames.append(controllerName)
+            }
+        }
+        return arrayNames
+    }
+ 
+    func getAllViewController(inStoryboard name: String) -> [String] {
+        var arrayNames = [String]()
+        for dic in dictionnary where dic.key == name {
+            for controllerName in dic.value {
+                arrayNames.append(controllerName)
+            }
+        }
+        return arrayNames
     }
 }
