@@ -12,18 +12,25 @@ import UIKit
 public let Navigation = NavigationSingleton.instance
 
 public class NavigationSingleton {
+    // Singleton
     internal static let instance = NavigationSingleton()
     
-    // Dictionary <Storyboard name, [ViewController name]>
-    private var dictionnary: Dictionary<String, [String]>!
-    
-    private init() {
-        dictionnary =  getAllStoryboard()
+    enum PlistKey: String {
+        case identifierNibName = "UIViewControllerIdentifiersToNibNames"
+        case entryPoint = "UIStoryboardDesignatedEntryPointIdentifier"
     }
     
-    private func getAllStoryboard() -> Dictionary<String, [String]> {
-        var dictionnary = Dictionary<String, [String]>()
+    private var storyboards: [Storyboard]!
+    
+    private init() {
+     //   dictionnary = getAllStoryboard()
+        storyboards = contructArrayStoryboard()
+    }
+    
+    private func contructArrayStoryboard() -> [Storyboard] {
+        var storyboards = [Storyboard]()
         var arrayName = [String]()
+        
         if let directory = Bundle.main.resourcePath {
             // Storyboard file is in Base.lproj
             let allResources = try! FileManager.default.contentsOfDirectory(atPath: directory)
@@ -31,8 +38,10 @@ public class NavigationSingleton {
             arrayName.append(contentsOf: allResources.filter({ $0.hasSuffix(".storyboardc" )}))
             for name in arrayName {
                 let shortName = name.split(separator: ".")[0] // cut extension
-                dictionnary.updateValue(getAllController(namesStoryBoard: "\(directory)/\(name)"), forKey: String(shortName))
+               // dictionnary.updateValue(getAllController(namesStoryBoard: "\(directory)/\(name)"), forKey: String(shortName))
+                storyboards += findAndParsePlist(in: "\(directory)/\(name)", shortName: String(shortName))
             }
+            
             
             arrayName = [String]()
             let lprojs = allResources.filter({ $0.hasSuffix(".lproj" )})
@@ -42,56 +51,103 @@ public class NavigationSingleton {
                 arrayName.append(contentsOf: allResources.filter({ $0.hasSuffix(".storyboardc" )}))
                 for name in arrayName {
                     let shortName = name.split(separator: ".")[0]
-                    dictionnary.updateValue(getAllController(namesStoryBoard: "\(directory)/\(lproj)/\(name)"), forKey: String(shortName))
+                    storyboards += findAndParsePlist(in: "\(directory)/\(lproj)/\(name)", shortName: String(shortName))
                 }
             }
         }
-        return dictionnary
+        return storyboards
     }
     
-    // Find all Storyboard in projet and all ViewController in Storyboatd
-    // Return : Dictionary <"Storyboard name", ["ViewController name"]>
-    private func getAllController(namesStoryBoard: String) -> [String] {
-        var arrayControllerName = [String]()
+    // Search plist in "storyboardc", Parse and
+    // Return : [Storyboard]
+    private func findAndParsePlist(in storyboardName: String, shortName: String) ->  [Storyboard] {
+        var storyboardArray = [Storyboard]()
         
-        let directory = "\(namesStoryBoard)"
+        let directory = "\(storyboardName)"
         if let directory =  URL(string: directory) {
             
             guard let files = try? FileManager.default.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil, options: FileManager.DirectoryEnumerationOptions.skipsHiddenFiles) else {
-                return [String]()
+                return [Storyboard]()
             }
             
-            // Filtered nib file (return ViewController and View)
-            let filteredFiles = files.filter({ $0.pathExtension == "nib"})
-            
-            // nib file with not contain -view-
-            for file in filteredFiles where !file.absoluteString.contains("-view-") {
-                var fileController = file
-                fileController.deletePathExtension()
-                arrayControllerName.append(fileController.lastPathComponent)
+            let plists = files.filter({ $0.pathExtension == "plist"})
+            for plist in plists {
+                if let storyboard = parsePlist(file: plist.absoluteString, shortName: shortName) {
+                    storyboardArray.append(storyboard)
+                }
             }
+            
+        }
+        return storyboardArray
+    }
+    
+    private func parsePlist(file: String, shortName: String) -> Storyboard? {
+        
+        var nsDictionary = NSDictionary()
+        if let url = URL(string: file) {
+            nsDictionary = NSDictionary(contentsOf: url) ?? NSDictionary()
+            
+            let entryPoint: String = (nsDictionary.value(forKey: PlistKey.entryPoint.rawValue) as? String) ?? "none"
+            let identifiersNibName = (nsDictionary.value(forKey: PlistKey.identifierNibName.rawValue) as? Dictionary<String, String>) ?? Dictionary<String, String>()
+            
+            var dictionnaryController = [(name: String, id: String)]()
+            for idDictionnary in identifiersNibName {
+                dictionnaryController.append((name: idDictionnary.key, id: idDictionnary.key))
+            }
+            return Storyboard(fileName: shortName,
+                       entryPoint: entryPoint,
+                       dictionnaryController: dictionnaryController)
         }
         
-        return arrayControllerName
+        return nil
     }
     
     // Return true if dictionnary contain controller Name
-    func controllerExist(_ name: String) -> Bool {
-        for dic in dictionnary {
-            for controllerName in dic.value where controllerName == name {
+    func controllerExist(_ id: String) -> Bool {
+        for storyboard in storyboards {
+            for controllersName in storyboard.dictionnaryController where controllersName.id == id {
                 return true
             }
         }
         return false
     }
     
-    func getViewController(_ name: String) -> UIViewController? {
-        for dic in dictionnary {
-            for controllerName in dic.value where controllerName == name {
-                let storyboard = UIStoryboard(name: dic.key, bundle: nil)
-                return storyboard.instantiateViewController(withIdentifier: controllerName)
+    func getViewController(_ id: String) -> UIViewController? {
+        for storyboard in storyboards {
+            for controller in storyboard.dictionnaryController where controller.id == id {
+                let storyboard = UIStoryboard(name: storyboard.fileName, bundle: nil)
+                return storyboard.instantiateViewController(withIdentifier: controller.id)
             }
         }
         return nil
+    }
+    
+    func getAllStoryboardName() -> [String] {
+        var arrayNames = [String]()
+        for storyboard in storyboards {
+            arrayNames.append(storyboard.fileName)
+        }
+        return arrayNames
+    }
+    
+    
+    func getAllViewControllerId() -> [String] {
+        var arrayNames = [String]()
+        for storyboard in storyboards {
+            for controllerName in storyboard.dictionnaryController {
+                arrayNames.append(controllerName.id)
+            }
+        }
+        return arrayNames
+    }
+ 
+    func getAllViewControllerId(inStoryboard name: String) -> [String] {
+        var arrayNames = [String]()
+        for storyboard in storyboards where storyboard.fileName == name {
+            for controllerName in storyboard.dictionnaryController {
+                arrayNames.append(controllerName.id)
+            }
+        }
+        return arrayNames
     }
 }

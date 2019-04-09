@@ -80,7 +80,7 @@ public class NavigationSingleton {
         }
         return storyboardArray
     }
-    
+
     private func parsePlist(file: String, shortName: String) -> Storyboard? {
         
         var nsDictionary = NSDictionary()
@@ -101,7 +101,7 @@ public class NavigationSingleton {
         
         return nil
     }
-    
+
     // Return true if dictionnary contain controller Name
     func controllerExist(_ id: String) -> Bool {
         for storyboard in storyboards {
@@ -111,7 +111,7 @@ public class NavigationSingleton {
         }
         return false
     }
-    
+
     func getViewController(_ id: String) -> UIViewController? {
         for storyboard in storyboards {
             for controller in storyboard.dictionnaryController where controller.id == id {
@@ -121,7 +121,7 @@ public class NavigationSingleton {
         }
         return nil
     }
-    
+
     func getAllStoryboardName() -> [String] {
         var arrayNames = [String]()
         for storyboard in storyboards {
@@ -129,8 +129,7 @@ public class NavigationSingleton {
         }
         return arrayNames
     }
-    
-    
+
     func getAllViewControllerId() -> [String] {
         var arrayNames = [String]()
         for storyboard in storyboards {
@@ -140,7 +139,7 @@ public class NavigationSingleton {
         }
         return arrayNames
     }
- 
+
     func getAllViewControllerId(inStoryboard name: String) -> [String] {
         var arrayNames = [String]()
         for storyboard in storyboards where storyboard.fileName == name {
