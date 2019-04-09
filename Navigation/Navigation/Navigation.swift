@@ -24,7 +24,6 @@ public class NavigationSingleton {
     private var storyboards: [Storyboard]!
     
     private init() {
-        //   dictionnary = getAllStoryboard()
         storyboards = contructArrayStoryboard()
     }
     
@@ -39,7 +38,6 @@ public class NavigationSingleton {
             arrayName.append(contentsOf: allResources.filter({ $0.hasSuffix(".storyboardc" )}))
             for name in arrayName {
                 let shortName = name.split(separator: ".")[0] // cut extension
-                // dictionnary.updateValue(getAllController(namesStoryBoard: "\(directory)/\(name)"), forKey: String(shortName))
                 storyboards += findAndParsePlist(in: "\(directory)/\(name)", shortName: String(shortName))
             }
             
