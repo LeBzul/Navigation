@@ -13,7 +13,7 @@
         <!--Navigation Controller-->
         <scene sceneID="71l-L7-u32">
             <objects>
-                <navigationController storyboardIdentifier="UINavigationController" id="EnO-cf-EnJ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="UINavigationControllerId" id="EnO-cf-EnJ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ryH-AJ-GqI">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -113,7 +113,7 @@
         <!--Main2-->
         <scene sceneID="9EG-C7-CsA">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main2" id="6TA-tD-r3i" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="reference" storyboardName="Main2" id="6TA-tD-r3i" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D2A-eV-Gkm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="764" y="-745"/>

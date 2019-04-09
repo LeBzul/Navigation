@@ -64,13 +64,13 @@
 		E97EDF5922534116000434CD /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				E97EDFE4225CC926000434CD /* New Group */,
 				E97EDF6C22538789000434CD /* Navigation */,
 				E97EDF5A22534116000434CD /* AppDelegate.swift */,
 				E97EDF5C22534116000434CD /* ViewController.swift */,
 				E97EDF6F22538E51000434CD /* ViewController2.swift */,
 				E97EDF7322538F81000434CD /* ViewController3.swift */,
 				E97EDF5E22534116000434CD /* Main.storyboard */,
-				E97EDF7122538F60000434CD /* Main2.storyboard */,
 				E97EDF6122534119000434CD /* Assets.xcassets */,
 				E97EDF6322534119000434CD /* LaunchScreen.storyboard */,
 				E97EDF662253411A000434CD /* Info.plist */,
@@ -85,6 +85,14 @@
 				E97EDFE2225C9A50000434CD /* Storyboard.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		E97EDFE4225CC926000434CD /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				E97EDF7122538F60000434CD /* Main2.storyboard */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

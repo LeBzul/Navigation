@@ -38,7 +38,11 @@ class ViewController: UIViewController {
         text += "-> Get ViewController IdStoryboard \"Hello\" :\n"
         text += "\(Navigation.getViewController("Hello"))\n\n"
         
+        text += "-> Get entry point in Main Storyboard :\n"
+        text += "\(Navigation.getEntryPoint(inStoryboard: "Main"))\n\n"
         
+        text += "-> Get External Storyboard reference in Main  :\n"
+        text += "\(Navigation.getExternalStoryboardReference(inStoryboard: "Main"))\n\n"
         
         label.text = text
     }
