@@ -53,7 +53,8 @@
                     <navigationItem key="navigationItem" id="opQ-f0-mrD"/>
                     <connections>
                         <outlet property="label" destination="y4h-MC-zcd" id="hPv-Sq-4iu"/>
-                        <segue destination="y27-BQ-hwM" kind="show" id="8uZ-Ic-Jlx"/>
+                        <segue destination="y27-BQ-hwM" kind="show" identifier="MySegue" id="8uZ-Ic-Jlx"/>
+                        <segue destination="iJR-DC-0zL" kind="show" identifier="Segue2" id="JhS-pw-Cxr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -74,6 +75,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nVW-Af-f9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="865" y="125"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="TzD-cy-Rfa">
+            <objects>
+                <viewController storyboardIdentifier="Controller4" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iJR-DC-0zL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G3y-Z0-aVu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPO-wo-QKC">
+                                <rect key="frame" x="16" y="80" width="343" height="571"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fPO-wo-QKC" firstAttribute="bottom" secondItem="idh-Os-R2b" secondAttribute="bottom" constant="-16" id="4TY-aO-N4s"/>
+                            <constraint firstItem="fPO-wo-QKC" firstAttribute="trailing" secondItem="idh-Os-R2b" secondAttribute="trailing" constant="-16" id="BLG-6q-032"/>
+                            <constraint firstItem="fPO-wo-QKC" firstAttribute="leading" secondItem="idh-Os-R2b" secondAttribute="leading" constant="16" id="HzI-1h-Wzi"/>
+                            <constraint firstItem="fPO-wo-QKC" firstAttribute="top" secondItem="idh-Os-R2b" secondAttribute="top" constant="16" id="whM-Zb-XCk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="idh-Os-R2b"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="IKu-Ul-Y3z"/>
+                    <connections>
+                        <outlet property="label" destination="fPO-wo-QKC" id="a97-tP-xM9"/>
+                        <segue destination="6TA-tD-r3i" kind="show" id="3BS-z9-nbf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dbv-3s-pfA" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="129" y="-612"/>
+        </scene>
+        <!--Main2-->
+        <scene sceneID="9EG-C7-CsA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main2" id="6TA-tD-r3i" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D2A-eV-Gkm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="-745"/>
         </scene>
     </scenes>
 </document>

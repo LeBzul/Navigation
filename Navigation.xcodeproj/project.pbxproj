@@ -16,7 +16,7 @@
 		E97EDF7022538E51000434CD /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97EDF6F22538E51000434CD /* ViewController2.swift */; };
 		E97EDF7222538F60000434CD /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E97EDF7122538F60000434CD /* Main2.storyboard */; };
 		E97EDF7422538F81000434CD /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97EDF7322538F81000434CD /* ViewController3.swift */; };
-		E97EDFA522578B78000434CD /* MyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97EDFA422578B78000434CD /* MyModel.swift */; };
+		E97EDFE3225C9A50000434CD /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97EDFE2225C9A50000434CD /* Storyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		E97EDF6F22538E51000434CD /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		E97EDF7122538F60000434CD /* Main2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main2.storyboard; sourceTree = "<group>"; };
 		E97EDF7322538F81000434CD /* ViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
-		E97EDFA422578B78000434CD /* MyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyModel.swift; sourceTree = "<group>"; };
+		E97EDFE2225C9A50000434CD /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +74,6 @@
 				E97EDF6122534119000434CD /* Assets.xcassets */,
 				E97EDF6322534119000434CD /* LaunchScreen.storyboard */,
 				E97EDF662253411A000434CD /* Info.plist */,
-				E97EDFA422578B78000434CD /* MyModel.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -83,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				E97EDF6D2253879B000434CD /* Navigation.swift */,
+				E97EDFE2225C9A50000434CD /* Storyboard.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -161,9 +161,9 @@
 			files = (
 				E97EDF7422538F81000434CD /* ViewController3.swift in Sources */,
 				E97EDF6E2253879B000434CD /* Navigation.swift in Sources */,
-				E97EDFA522578B78000434CD /* MyModel.swift in Sources */,
 				E97EDF7022538E51000434CD /* ViewController2.swift in Sources */,
 				E97EDF5D22534116000434CD /* ViewController.swift in Sources */,
+				E97EDFE3225C9A50000434CD /* Storyboard.swift in Sources */,
 				E97EDF5B22534116000434CD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

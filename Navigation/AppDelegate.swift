@@ -14,11 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-       // print(Navigation.instance.getViewController("MonController"))
-       // UIViewController.swizzleExtension()
-        
-       // Navigation.setModel(model: Model(value: MyModel(value: "Hello")))
-       
+  
         return true
     }
     

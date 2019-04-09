@@ -21,10 +21,10 @@ class ViewController: UIViewController {
         text += "\(Navigation.getAllStoryboardName())\n\n"
         
         text += "-> ALL ViewController IdStoryboard :\n"
-        text += "\(Navigation.getAllViewControllerName())\n\n"
+        text += "\(Navigation.getAllViewControllerId())\n\n"
         
         text += "-> ViewController IdStoryboard in Main Storyboard :\n"
-        text += "\(Navigation.getAllViewController(inStoryboard: "Main"))\n\n"
+        text += "\(Navigation.getAllViewControllerId(inStoryboard: "Main"))\n\n"
         
         text += "-> ViewController IdStoryboard \"Hello\" exist ?\n"
         text += "\(Navigation.controllerExist("hello"))\n\n"
@@ -37,6 +37,8 @@ class ViewController: UIViewController {
         
         text += "-> Get ViewController IdStoryboard \"Hello\" :\n"
         text += "\(Navigation.getViewController("Hello"))\n\n"
+        
+        
         
         label.text = text
     }
