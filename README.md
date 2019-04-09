@@ -4,6 +4,8 @@
 - Check the existence of a UIViewController in the project with the controller StoryboardID
 - Return list name (file name) of Storyboard in project
 - Return list name (StoryboardID) of UIViewController in project
+- Return list id of external storyboard reference for specific Storyboard
+- Return entry point for specific Storyboard
 
 ## Installation
 
@@ -41,5 +43,17 @@ Return all UIViewController name (StoryboardID) for specific Storyboard
 
 ```Swift
 Navigation.getAllViewController(inStoryboard: "Main")
+```
+
+Return Entry point name for specific Storyboard
+
+```Swift
+Navigation.getEntryPoint(inStoryboard: "Main")
+```
+
+Return External storyboard reference name for specific Storyboard
+
+```Swift
+Navigation.getExternalStoryboardReference(inStoryboard: "Main")
 ```
 
