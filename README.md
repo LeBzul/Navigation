@@ -57,3 +57,7 @@ Return External storyboard reference name for specific Storyboard
 Navigation.getExternalStoryboardReference(inStoryboard: "Main")
 ```
 
+
+# License
+Navigation is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
+If you use it, I'll be happy to know about it.
