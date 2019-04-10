@@ -9,7 +9,7 @@
 
 ## Installation
 
-Import Navigation.swift in your project (or use example project)
+Import Navigation.swift and Storyboard.swift in your project (or use example project)
 
 ## Usage 
 
