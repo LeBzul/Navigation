@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         var text = ""
         text += "-> ALL Storyboard Name :\n"
         text += "\(Navigation.getAllStoryboardName())\n\n"
